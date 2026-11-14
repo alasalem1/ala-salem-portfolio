@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ala-salem-portfolio
+    runtime: node
+    plan: free
+    buildCommand: echo "nothing to build"
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_TO
+        value: alasalem0@gmail.com
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: SITE_URL
+        sync: false
